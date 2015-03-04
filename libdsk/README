@@ -1,0 +1,20 @@
+  This is a binary distribution of LibDsk for Win32, built using Microsoft
+Visual C++ 6.0. It contains the following files:
+
+* README:        This file.
+* COPYING:       The GNU Library GPL. You must comply with the conditions 
+                 in COPYING if you redistribute LibDsk.
+* libdsk.dll:	 LibDsk itself.
+* libdsk.lib: 	 The import library for LibDsk.
+* apriboot.exe }
+* dskform.exe  }
+* dskid.exe    } The eight example command-line utilities.
+* dsktrans.exe }
+* dskdump.exe  }
+* dskscan.exe  }
+* dskutil.exe  }
+* serslave.exe }
+* atlibdsk.dll:  LibDsk as a COM server.
+* dsktools.exe:  The example Visual BASIC front end.
+* libdsk-1.3.5.tar.gz: Full source code and documentation.
+
