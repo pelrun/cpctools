@@ -56,8 +56,8 @@ const char* CAksFileTransfert::DisplayMessageHeader[] =
 	"Debug: "
 };
 
-CAksFileTransfert::CAksFileTransfert(std::string comNumber) :
-CCPCBooster(comNumber),
+CAksFileTransfert::CAksFileTransfert(std::string comPort) :
+CCPCBooster(comPort),
 _transfertMode(NoTransfert),
 _nbTransfert(0),
 _transferingData(false),
@@ -316,7 +316,7 @@ bool CAksFileTransfert::CreateFile(const CAksCommand &cmd)
 	if (cmd != AksCreateFile)
 		return false;
 
-	ReadBuffer(_amsFilename, 12);
+	ReadWaitBuffer(_amsFilename, 12);
 	_amsFilename[12] = 0;
 
 	std::cout << "Filename " << _amsFilename << std::endl;
@@ -352,7 +352,7 @@ bool CAksFileTransfert::AddData(const CAksCommand &cmd)
 
 	unsigned char *buffer = new unsigned char[size];
 
-	ReadBuffer(buffer, size);
+	ReadWaitBuffer(buffer, size);
 
 	if (_outStream != NULL)
 	{
@@ -471,7 +471,7 @@ bool CAksFileTransfert::WaitTrack(const CAksCommand &cmd)
 
 		sect.Allocate();
 
-		ReadBuffer(sect.Data, sect.GetDataSize());
+		ReadWaitBuffer(sect.Data, sect.GetDataSize());
 
 		sect.Update();
 	}
@@ -509,7 +509,7 @@ bool CAksFileTransfert::OpenFile(const CAksCommand &cmd)
 	if (cmd != AksOpenFile)
 		return false;
 
-	ReadBuffer(_amsFilename, 12);
+	ReadWaitBuffer(_amsFilename, 12);
 	_amsFilename[12] = 0;
 
 	if (_inStream != NULL)
