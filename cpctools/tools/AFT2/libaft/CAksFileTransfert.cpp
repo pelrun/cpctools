@@ -152,7 +152,8 @@ CAksCommand CAksFileTransfert::GetCommand(bool wait)
 	bool readed = false;
 	if (wait)
 	{
-		readed = ReadWaitByte(command);
+		ReadWaitByte(command);
+		readed = true;
 	}
 	else
 	{
